@@ -1,0 +1,22 @@
+<div class="container-fluid">
+  <div class="row top-bar z-depth-1">
+    <div class="col-auto">
+      <div class="left">
+        <img src="assets/icons/icon-96x96.png">
+        <h1>Bible Journal Online</h1>
+      </div>
+    </div>
+    <div class="col center">
+      <input (keyup)="filterEntries(search.value)" class="form-control" type="text" placeholder="Search" aria-label="Search" #search>
+    </div>
+    <div class="col-auto">
+      <div *ngIf="auth.isLoggedIn()" class="right">
+        <span>{{auth.userDetails.displayName}}</span>
+        <button (click)="signOut()" class="btn btn-default">Sign out</button>
+      </div>
+      <div *ngIf="!auth.isLoggedIn()" class="right">
+        <button (click)="signInGoogle()" class="btn btn-default">Sign in with Google</button>
+      </div>
+    </div>
+  </div>
+</div>

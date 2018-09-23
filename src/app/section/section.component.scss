@@ -1,0 +1,21 @@
+.content {
+  display: inline-block;
+  input {
+    width: 300px;
+  }
+}
+
+button {
+  float: right;
+}
+
+.row {
+  justify-content: space-between;
+}
+
+@media screen and (max-width: 992px) {
+  .col, .col-auto {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+}

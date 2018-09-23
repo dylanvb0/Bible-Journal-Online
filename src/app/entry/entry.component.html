@@ -1,0 +1,20 @@
+<div *ngIf="entry == activeEntry" class="list-group-item selected">
+  <div class="header">
+    <div class="content">
+      <h2 *ngIf="entry.created">{{entry.created.toDate() | date:'short'}}</h2>
+      <p *ngIf="entry.updated">Updated {{entry.updated.toDate() | date:'short'}}</p>
+    </div>
+    <button (click)="closeEntry()" class="btn">Close</button>
+  </div>
+  <app-section *ngFor="let section of entry.sections" [section]="section" [sections]="entry.sections"></app-section>
+  <button class="btn" (click)="addSection()">Add Section</button>
+  <button class="btn btn-primary" (click)="saveEntry()">Save</button>
+</div>
+<div *ngIf="entry != activeEntry" class="list-group-item">
+  <div class="content">
+    <p>{{entry.created.toDate() | date:'short'}}</p>
+    <span *ngIf="entry.sections" class="title">{{entry.sections[0].title}}</span>
+    <span *ngIf="entry.sections">{{entry.sections[0].text}}</span>
+  </div>
+  <button [swal]="{ title: 'Are you sure?', text: 'Are you sure you want to delete this entry?', type: 'warning', showCancelButton: 'true', confirmButtonText: 'Yes, Delete'}" (confirm)="deleteEntry()" class="btn btn-danger delete">Delete</button>
+</div>

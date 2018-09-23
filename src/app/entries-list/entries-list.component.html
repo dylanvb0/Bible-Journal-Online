@@ -1,0 +1,4 @@
+<div *ngFor="let entry of entryService.entries | async | filter: entryService.searchText" class="list-group">
+  <app-entry [entry]="entry" [activeEntry]="activeEntry" (click)="selectEntry(entry)"></app-entry>
+</div>
+<button (click)="createEntry()" class="btn btn-primary">Create Entry</button>

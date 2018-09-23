@@ -1,0 +1,30 @@
+.selected {
+  background-color: ghostwhite;
+}
+.delete {
+  float: right;
+}
+
+.content {
+  display: inline-block;
+
+  .title {
+    font-weight: bold;
+    margin-right: 15px;
+  }
+}
+
+.header {
+  button {
+    float: right;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .content {
+    width: 100%;
+  }
+  .delete {
+    float: left;
+  }
+}
