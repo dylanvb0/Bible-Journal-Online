@@ -18,4 +18,5 @@ export class Entry {
     }
     return obj;
   }
+
 }

@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { EntryService } from '../entry.service';
 import { Entry } from '../Entry';
 import { AuthService } from '../auth.service';
 import { saveAs } from 'file-saver';
+import { EntryComponent } from '../entry/entry.component';
 
 @Component({
   selector: 'app-entries-list',
@@ -12,6 +13,7 @@ import { saveAs } from 'file-saver';
 export class EntriesListComponent implements OnInit {
 
   activeEntry : Entry;
+  // @ViewChild(EntryComponent) activeEntryComponent;
   importingEntries : string;
 
   constructor(
@@ -25,6 +27,7 @@ export class EntriesListComponent implements OnInit {
   createEntry() {
     var entry = {};
     entry["created"] = new Date();
+    entry["uid"] = this.authService.userDetails.uid;
     this.entryService.addEntry(entry);
     this.selectEntry(entry);
   }

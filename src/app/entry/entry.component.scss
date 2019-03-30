@@ -8,6 +8,7 @@
 .content {
   display: inline-block;
   width: calc(100% - 2.5rem - 115px);
+  min-height: 65px;
 
   .title {
     font-weight: bold;

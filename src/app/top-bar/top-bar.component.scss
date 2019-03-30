@@ -5,7 +5,15 @@
     justify-content: space-between;
 
     .left {
-
+      @media screen and (max-width:665px) {
+        img {
+          width: 64px;
+          height: 64px;
+        }
+        h1 {
+          font-size: 1.5rem;
+        }
+      }
       img, h1 {
         float: left;
       }

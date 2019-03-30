@@ -46,4 +46,16 @@ export class EntryComponent implements OnInit {
   deleteEntry() {
     this.entryService.deleteEntry(this.entry.id);
   }
+
+  isEntryActive(){
+    if(typeof this.entry === 'undefined' || this.entry === null) return false;
+    if(typeof this.activeEntry === 'undefined' || this.activeEntry === null) return false;
+    if(this.entry.id === this.activeEntry.id){
+      if(typeof this.entry.sections === 'undefined' || this.entry.sections.length === 0){
+        this.addSection();
+      }
+      return true;
+    };
+    return false;
+  }
 }

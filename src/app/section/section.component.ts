@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
 import { Section } from '../Section';
 
 @Component({
@@ -10,10 +10,12 @@ export class SectionComponent implements OnInit {
 
   @Input() section : Section;
   @Input() sections : Section[];
+  @ViewChild("title") titleField : ElementRef;
 
   constructor() { }
 
   ngOnInit() {
+    this.titleField.nativeElement.focus();
   }
 
   deleteSection() {
