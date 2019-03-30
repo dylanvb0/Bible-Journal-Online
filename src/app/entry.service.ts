@@ -18,7 +18,7 @@ export class EntryService {
   }
 
   initFirestoreConnection(uid){
-    this.entriesCollection = this._firestore.collection<Entry>(uid, ref => ref.orderBy('created'));
+    this.entriesCollection = this._firestore.collection<Entry>('entries', ref => ref.where('uid', '==', uid).orderBy('created', 'desc'));
     this.entries = this.entriesCollection.valueChanges();
   }
 
@@ -33,5 +33,14 @@ export class EntryService {
 
   deleteEntry(entry) {
     this.entriesCollection.doc(entry).delete();
+  }
+
+  saveEntries(entries : Entry[]) {
+    var newCollection = this._firestore.collection<Entry>('entries');
+    console.log(entries);
+    console.log(entries);
+    for(var i in entries){
+      newCollection.add(entries[i]);
+    }
   }
 }

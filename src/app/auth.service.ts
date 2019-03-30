@@ -7,7 +7,7 @@ import { EntryService } from './entry.service';
 @Injectable()
 export class AuthService {
   private user: Observable<firebase.User>;
-  private userDetails : firebase.User = null;
+  public userDetails : firebase.User = null;
 
   constructor(
     private _firebaseAuth: AngularFireAuth,

@@ -1,4 +1,7 @@
+<button (click)="createEntry()" class="btn btn-primary">Create Entry</button>
+<!-- <button (click)="exportEntries()" class="btn">Export Entries</button> -->
+<!-- <button (click)="importEntries()" class="btn">Import Entries</button> -->
+<!-- <textarea>{{importingEntries}}</textarea> -->
 <div *ngFor="let entry of entryService.entries | async | filter: entryService.searchText" class="list-group">
   <app-entry [entry]="entry" [activeEntry]="activeEntry" (click)="selectEntry(entry)"></app-entry>
 </div>
-<button (click)="createEntry()" class="btn btn-primary">Create Entry</button>

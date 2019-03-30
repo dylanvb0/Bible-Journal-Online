@@ -5,6 +5,7 @@ export class Entry {
   created : Date;
   updated : Date;
   sections : Section[];
+  uid : string;
 
   public toObject() {
     var obj = {};
